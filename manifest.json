@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "io.github.arikisonfire.sbx-enclave",
+  "name": "sbxEnclave",
+  "version": "1.0.0",
+  "author": "arikisonfire",
+  "license": "MIT",
+  "description": "Let AI coding agents like Claude Code, Codex or Gemini CLI work on their own without risking your machine: Docker Sandboxes (sbx) give each agent a microVM that sees only the folders you hand it and reaches only the hosts you allow, and stored API keys never enter it. sbxEnclave puts sbx in your bar: start a sandbox for any folder with every option at hand, see what your sandboxes run and reach, answer their network requests with one click and look up the CLI.",
+  "homepage": "https://github.com/arikisonfire/omarchy-sbx-enclave",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "sbxEnclave",
+    "description": "Launch, watch and manage Docker Sandboxes (sbx)",
+    "category": "Development",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "refreshSeconds": 15
+    },
+    "schema": [
+      { "key": "refreshSeconds", "type": "integer", "label": "Refresh while the popup is closed (seconds)", "min": 5, "max": 300, "step": 5, "defaultValue": 15 },
+      { "key": "protectedSandboxes", "type": "string", "label": "Protected sandboxes (comma separated): no Stop or Remove, and the daemon is not stopped while they run" }
+    ]
+  }
+}
