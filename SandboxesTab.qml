@@ -182,7 +182,7 @@ Item {
       horizontalAlignment: Text.AlignHCenter
       textFormat: Text.PlainText
       wrapMode: Text.WordWrap
-      text: !root.svc.installed ? "Install Docker Sandboxes (docs.docker.com/ai/sandboxes/install), then reopen this popup."
+      text: !root.svc.installed ? "On Omarchy: yay -S docker-sbx-bin, add yourself to the kvm group (sudo usermod -aG kvm $USER), log in again and run sbx login. Elsewhere: docs.docker.com/ai/sandboxes/install. Then reopen this popup."
         : root.svc.daemon === "stopped" ? "sbxEnclave never starts it on its own. Start it here, or run any sbx command."
         : root.svc.daemon === "unresponsive" ? "Every sbx command hangs until the daemon restarts. Restarting stops all running sandboxes, so pick a good moment."
         : root.svc.daemon === "unknown" ? ""

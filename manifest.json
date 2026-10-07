@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "id": "io.github.arikisonfire.sbx-enclave",
   "name": "sbxEnclave",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "arikisonfire",
   "license": "MIT",
-  "description": "Let AI coding agents like Claude Code, Codex or Gemini CLI work on their own without risking your machine: Docker Sandboxes (sbx) give each agent a microVM that sees only the folders you hand it and reaches only the hosts you allow, and stored API keys never enter it. sbxEnclave puts sbx in your bar: start a sandbox for any folder with every option at hand, see what your sandboxes run and reach, answer their network requests with one click and look up the CLI.",
+  "description": "Let AI coding agents like Claude Code, Codex or Gemini CLI work on their own without risking your machine: Docker Sandboxes (sbx) give each agent a microVM that sees only the folders you hand it and reaches only the hosts you allow, and stored API keys never enter it. sbxEnclave puts sbx in your bar: start a sandbox for any folder with every option at hand, see what your sandboxes run and reach, and answer their network requests with one click. Needs sbx on the host (AUR: docker-sbx-bin).",
   "homepage": "https://github.com/arikisonfire/omarchy-sbx-enclave",
   "kinds": [
     "bar-widget"

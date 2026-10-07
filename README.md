@@ -123,13 +123,35 @@ or Network when a request is waiting.
 ## Requirements
 
 - Omarchy with the Quickshell-based shell (Omarchy Quattro)
-- [Docker Sandboxes](https://docs.docker.com/ai/sandboxes/install/) (`sbx`), signed in
-  with `sbx login`. On Arch Linux, the AUR package `docker-sbx-bin` follows Docker's
-  releases. Tested with `sbx` 0.47.0.
+- Docker Sandboxes (`sbx`) installed on the host and signed in, see below. Docker
+  Desktop and Docker Engine are not needed. Tested with `sbx` 0.47.0.
 
 Everything else it uses ships with Omarchy: `curl`, `jq`, `timeout`, `setpriv`,
 `flock`, `wl-copy`, `xdg-open`, `less`, and for the folder chooser `python-gobject`
 and the desktop portal.
+
+### Install Docker Sandboxes on Omarchy
+
+sbxEnclave is the front end; the sandboxes themselves run in Docker Sandboxes,
+which you install once on the host. Docker ships `sbx` for Ubuntu, macOS and
+Windows. On Omarchy, the AUR package `docker-sbx-bin` installs Docker's own
+release:
+
+```sh
+yay -S docker-sbx-bin        # the sbx CLI and its daemon
+sudo usermod -aG kvm $USER   # local sandboxes run on KVM; log out and back in
+sbx login                    # sign in with your Docker account
+sbx diagnose                 # checks virtualization, the daemon and your sign-in
+```
+
+If `sbx diagnose` reports a virtualization problem, check that `lsmod | grep kvm`
+lists `kvm`, and turn on virtualization (Intel VT-x or AMD-V) in your firmware
+settings. [Docker's install guide](https://docs.docker.com/ai/sandboxes/install/)
+has the details.
+
+To update `sbx` later, run `yay -S docker-sbx-bin` again and then
+`sbx daemon restart`. The restart stops every running sandbox, so start them again
+afterwards.
 
 ## Install
 
